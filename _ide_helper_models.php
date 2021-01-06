@@ -23,6 +23,10 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int $electronic_type_id
  * @property string|null $image
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElectronicItem[] $contained_in_extras
+ * @property-read int|null $contained_in_extras_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElectronicItem[] $contains_extras
+ * @property-read int|null $contains_extras_count
  * @property-read \App\Models\ElectronicType $type
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ElectronicItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ElectronicItem newQuery()
