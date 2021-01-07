@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'name'                  => "Xbox Wireless {$controllerType->name}",
             "price"                 => 150,
             "is_wired"              => false,
-            "is_single_purchasable" => true,
+            "is_single_purchasable" => false,
             "image"                 => "https://assets.taskalia.com/tracktik/xbox_controller.jpg",
         ]);
 
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
             'name'                  => "Xbox Wired {$controllerType->name}",
             "price"                 => 100,
             "is_wired"              => true,
-            "is_single_purchasable" => true,
+            "is_single_purchasable" => false,
             "image"                 => "https://assets.taskalia.com/tracktik/wired_controller.jpg",
         ]);
 
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
             'name'                  => "TV {$controllerType->name}",
             "price"                 => 30,
             "is_wired"              => false,
-            "is_single_purchasable" => true,
+            "is_single_purchasable" => false,
             "image"                 => "https://assets.taskalia.com/tracktik/tv-controller.jpg",
         ]);
 
