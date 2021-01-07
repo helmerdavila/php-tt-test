@@ -25,4 +25,15 @@ class ElectronicItem extends Model
     {
         return $this->belongsTo(ElectronicType::class, 'electronic_type_id');
     }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeForSale($query)
+    {
+        return $query->where('is_single_purchasable', true);
+    }
 }

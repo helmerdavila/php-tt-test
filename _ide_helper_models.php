@@ -28,6 +28,7 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElectronicItem[] $extras
  * @property-read int|null $extras_count
  * @property-read \App\Models\ElectronicType $type
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ElectronicItem forSale()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ElectronicItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ElectronicItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ElectronicItem query()
