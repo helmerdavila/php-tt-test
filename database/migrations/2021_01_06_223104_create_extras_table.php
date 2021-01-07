@@ -16,6 +16,7 @@ class CreateExtrasTable extends Migration
         Schema::create('extras', function (Blueprint $table) {
             $table->foreignId('origin_electronic_item_id')->constrained('electronic_items');
             $table->foreignId('destination_electronic_item_id')->constrained('electronic_items');
+            $table->unsignedInteger('quantity')->default(1);
         });
     }
 
