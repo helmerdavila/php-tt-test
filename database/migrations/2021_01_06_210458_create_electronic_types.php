@@ -20,39 +20,6 @@ class CreateElectronicTypes extends Migration
             $table->unsignedInteger('maximum_extras')->default(0);
             $table->timestamps();
         });
-
-        if (\Schema::hasTable('electronic_types')) {
-            \DB::table('electronic_types')->insert([
-                [
-                    'name'           => 'Console',
-                    'slug'           => 'console',
-                    'maximum_extras' => 4,
-                    'created_at'     => now()->toDateTimeString(),
-                    'updated_at'     => now()->toDateTimeString(),
-                ],
-                [
-                    'name'           => 'Television',
-                    'slug'           => 'television',
-                    'maximum_extras' => 99999,
-                    'created_at'     => now()->toDateTimeString(),
-                    'updated_at'     => now()->toDateTimeString(),
-                ],
-                [
-                    'name'           => 'Microwave',
-                    'slug'           => 'microwave',
-                    'maximum_extras' => 0,
-                    'created_at'     => now()->toDateTimeString(),
-                    'updated_at'     => now()->toDateTimeString(),
-                ],
-                [
-                    'name'           => 'Controller',
-                    'slug'           => 'controller',
-                    'maximum_extras' => 0,
-                    'created_at'     => now()->toDateTimeString(),
-                    'updated_at'     => now()->toDateTimeString(),
-                ],
-            ]);
-        }
     }
 
     /**

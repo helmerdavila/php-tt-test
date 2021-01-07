@@ -11,7 +11,7 @@ class ElectronicItem extends Model
 
     protected $table = 'electronic_items';
 
-    public function contains_extras()
+    public function extras()
     {
         return $this->belongsToMany(ElectronicItem::class, 'extras', 'origin_electronic_item_id', 'destination_electronic_item_id');
     }

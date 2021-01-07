@@ -15,18 +15,18 @@ namespace App\Models{
  * App\Models\ElectronicItem
  *
  * @property int $id
+ * @property int $electronic_type_id
  * @property string $name
  * @property string $price
  * @property int $is_wired
  * @property int $is_single_purchasable
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property int $electronic_type_id
  * @property string|null $image
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElectronicItem[] $contained_in_extras
  * @property-read int|null $contained_in_extras_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElectronicItem[] $contains_extras
- * @property-read int|null $contains_extras_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElectronicItem[] $extras
+ * @property-read int|null $extras_count
  * @property-read \App\Models\ElectronicType $type
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ElectronicItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ElectronicItem newQuery()
