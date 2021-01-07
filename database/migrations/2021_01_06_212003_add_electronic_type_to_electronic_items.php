@@ -14,7 +14,7 @@ class AddElectronicTypeToElectronicItems extends Migration
     public function up()
     {
         Schema::table('electronic_items', function (Blueprint $table) {
-            $table->foreignId('electronic_type_id')->constrained('electronic_types')->after('id');
+            $table->foreignId('electronic_type_id')->after('id')->constrained('electronic_types');
         });
     }
 
