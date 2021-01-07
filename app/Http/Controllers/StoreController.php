@@ -13,4 +13,11 @@ class StoreController extends Controller
 
         return view('store.index', compact('electronicItems'));
     }
+
+    public function show($id)
+    {
+        $electronicItem = ElectronicItem::forSale()->where('id', $id)->firstOrFail();
+
+        return view('store.show', compact('electronicItem'));
+    }
 }

@@ -16,9 +16,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
-              <div class="flex-shrink-0">
+              <a href="{{ route('item.list') }}" class="flex-shrink-0">
                 <img class="h-8 w-64" src="https://www.tracktik.com/wp-content/uploads/2019/04/logo-black.svg" alt="Workflow">
-              </div>
+              </a>
             </div>
             <div class="hidden md:block">
               <div class="ml-4 flex items-center md:ml-6">
