@@ -17,5 +17,5 @@ Route::get('/', 'App\Http\Controllers\StoreController@index')->name('item.list')
 Route::get('/electronic-item/{id}', 'App\Http\Controllers\StoreController@show')->name('item.show');
 Route::post('/cart/add/{id}', 'App\Http\Controllers\OrderController@add')->name('cart.add');
 Route::post('/cart/remove/{id}', 'App\Http\Controllers\OrderController@remove')->name('cart.remove');
+Route::get('/order/preview', 'App\Http\Controllers\OrderController@preview')->name('order.preview');
 // TODO: My orders route
-// TODO: Cart and create order in same page

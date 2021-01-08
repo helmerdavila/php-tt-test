@@ -28,4 +28,11 @@ class OrderController extends Controller
 
         return back();
     }
+
+    public function preview()
+    {
+        $cart = Cart::instance();
+
+        return view('order.preview', compact('cart'));
+    }
 }

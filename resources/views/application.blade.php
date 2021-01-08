@@ -22,11 +22,11 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-4 flex items-center md:ml-6">
-                <button class="p-1 rounded-full text-gray-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <a href="{{ route('order.preview') }}" class="p-1 rounded-full text-gray-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                   <span class="sr-only">View notifications</span>
                   <i class="fas fa-fw fa-shopping-cart"></i>
                   <span>{{ \App\Instances\Cart::instance()->count() }}</span>
-                </button>
+                </a>
 
                 <!-- Profile dropdown -->
                 <div class="ml-3 relative">
