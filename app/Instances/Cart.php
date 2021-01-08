@@ -28,14 +28,14 @@ class Cart
         $this->setContent($content->toArray());
     }
 
-    public function remove($electronicItemId)
+    public function remove(ElectronicItem $item)
     {
         $content = $this->content();
 
         $indexFirstElement = null;
 
-        $content->each(function ($electronicItem, $index) use ($electronicItemId, &$indexFirstElement) {
-            if ($electronicItem['id'] === $electronicItemId) {
+        $content->each(function ($electronicItem, $index) use ($item, &$indexFirstElement) {
+            if ($electronicItem['id'] === $item->id) {
                 $indexFirstElement = $index;
 
                 return false;

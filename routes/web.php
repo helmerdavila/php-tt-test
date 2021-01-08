@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\StoreController@index')->name('item.list');
 Route::get('/electronic-item/{id}', 'App\Http\Controllers\StoreController@show')->name('item.show');
+Route::post('/cart/add/{id}', 'App\Http\Controllers\OrderController@add')->name('cart.add');
+Route::post('/cart/remove/{id}', 'App\Http\Controllers\OrderController@remove')->name('cart.remove');
 // TODO: My orders route
-// TODO: Add / remove item route
 // TODO: Cart and create order in same page

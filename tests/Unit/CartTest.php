@@ -68,15 +68,15 @@ class CartTest extends TestCase
             $this->cart->add($itemPlus);
         }
 
-        $this->cart->remove($item->id);
+        $this->cart->remove($item);
 
         $this->assertTrue($this->cart->count() === 3);
 
         foreach ($moreItems as $itemPlus) {
-            $this->cart->remove($itemPlus->id);
+            $this->cart->remove($itemPlus);
         }
 
-        $this->cart->remove($item->id);
+        $this->cart->remove($item);
 
         $this->assertTrue($this->cart->count() === 0);
     }

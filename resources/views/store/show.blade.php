@@ -9,9 +9,20 @@
     <div class="w-1/2 px-5">
       <h2 class="text-green-600 text-4xl">${{ $electronicItem->price }}</h2>
       <div class="mt-4">
-        <a href="#" class="inline-block bg-black text-white px-4 py-2 rounded shadow">
-          <i class="fas fa-fw fa-plus"></i> Add to cart
-        </a>
+        <form class="inline-block" action="{{ route('cart.add', $electronicItem->id) }}" method="post">
+          {!! csrf_field() !!}
+          <button type="submit" class="bg-black text-white px-4 py-2 rounded shadow">
+            <i class="fas fa-fw fa-plus"></i> Add to cart
+          </button>
+        </form>
+        @if(\App\Instances\Cart::instance()->contains($electronicItem))
+          <form class="inline-block" action="{{ route('cart.remove', $electronicItem->id) }}" method="post">
+            {!! csrf_field() !!}
+            <button type="submit" class="inline-block bg-black text-white px-4 py-2 rounded shadow">
+              <i class="fas fa-fw fa-minus"></i>
+            </button>
+          </form>
+        @endif
       </div>
       @if($electronicItem->extras->count() > 0)
         <h2 class="text-3xl font-semibold mt-5">Extras</h2>
