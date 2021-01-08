@@ -103,4 +103,20 @@ class CartTest extends TestCase
 
         $this->assertTrue(floatval($this->cart->total()) === floatval($secondAmount * 2 + $firstAmount));
     }
+
+    public function test_contains_or_not_an_item()
+    {
+        $itemType = ElectronicType::factory()->create();
+
+        /** @var ElectronicItem $item */
+        $item = ElectronicItem::factory()->create(['electronic_type_id' => $itemType->id]);
+
+        $this->cart->clean();
+
+        $this->assertFalse($this->cart->contains($item));
+
+        $this->cart->add($item);
+
+        $this->assertTrue($this->cart->contains($item));
+    }
 }

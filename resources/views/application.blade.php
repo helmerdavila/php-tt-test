@@ -25,6 +25,7 @@
                 <button class="p-1 rounded-full text-gray-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                   <span class="sr-only">View notifications</span>
                   <i class="fas fa-fw fa-shopping-cart"></i>
+                  <span>{{ \App\Instances\Cart::instance()->count() }}</span>
                 </button>
 
                 <!-- Profile dropdown -->

@@ -77,4 +77,9 @@ class Cart
     {
         return \Cache::set(self::SESSION_CART_KEY, collect($items));
     }
+
+    public function contains(ElectronicItem $item): bool
+    {
+        return $this->content()->contains(fn($electronicItem) => $electronicItem['id'] === $item->id);
+    }
 }
