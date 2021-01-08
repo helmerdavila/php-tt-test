@@ -22,6 +22,7 @@
             </div>
             <div class="flex-1 flex flex-col">
               <span class="font-semibold">{{ $extra->name }}</span>
+              <span class="text-green-600">+ ${{ $extra->price }}</span>
               <span>Wired: {{ $extra->is_wired ? 'Yes' : 'No' }}</span>
             </div>
           </div>
