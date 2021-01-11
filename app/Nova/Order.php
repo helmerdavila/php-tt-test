@@ -2,33 +2,27 @@
 
 namespace App\Nova;
 
-use Chaseconey\ExternalImage\ExternalImage;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Slug;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 
-class ElectronicItem extends Resource
+class Order extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\ElectronicItem::class;
+    public static $model = \App\Models\Order::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -37,7 +31,6 @@ class ElectronicItem extends Resource
      */
     public static $search = [
         'id',
-        'name',
     ];
 
     /**
@@ -50,13 +43,9 @@ class ElectronicItem extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            BelongsTo::make('Type', 'type', 'App\Nova\ElectronicType'),
-            Text::make('Name', 'name')->sortable(),
-            Currency::make('Price')->sortable(),
-            Boolean::make('Wired?', 'is_wired'),
-            Boolean::make('Allow single purchase?', 'is_single_purchasable'),
-            ExternalImage::make('Image', 'image')->width(50),
-            BelongsToMany::make('Extras', 'extras', 'App\Nova\ElectronicItem'),
+            BelongsTo::make('User'),
+            Currency::make('Total'),
+            HasMany::make('Order details', 'order_details'),
         ];
     }
 

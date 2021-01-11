@@ -101,6 +101,7 @@ namespace App\Models{
  * @property int $electronic_item_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\ElectronicItem $electronic_item
  * @property-read \App\Models\Order $order
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail newQuery()

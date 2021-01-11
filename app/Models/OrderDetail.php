@@ -13,4 +13,9 @@ class OrderDetail extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function electronic_item()
+    {
+        return $this->belongsTo(ElectronicItem::class);
+    }
 }
