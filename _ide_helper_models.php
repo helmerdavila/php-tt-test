@@ -70,6 +70,52 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Order
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $total
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\OrderDetail[] $order_details
+ * @property-read int|null $order_details_count
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereUserId($value)
+ */
+	class Order extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\OrderDetail
+ *
+ * @property int $id
+ * @property int $order_id
+ * @property int $electronic_item_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Order $order
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail whereElectronicItemId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail whereOrderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OrderDetail whereUpdatedAt($value)
+ */
+	class OrderDetail extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\User
  *
  * @property int $id
@@ -82,6 +128,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
+ * @property-read int|null $orders_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User query()

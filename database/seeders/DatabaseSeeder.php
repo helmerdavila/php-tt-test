@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\ElectronicItem;
 use App\Models\ElectronicType;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -71,7 +74,8 @@ class DatabaseSeeder extends Seeder
             "is_single_purchasable" => true,
             "image"                 => "https://assets.taskalia.com/tracktik/xbox.jpg",
         ]);
-        $console->extras()->sync([$wiredController->id => ['quantity' => 2], $wirelessController->id => ['quantity' => 2]]);
+        $console->extras()->sync([$wiredController->id    => ['quantity' => 2],
+                                  $wirelessController->id => ['quantity' => 2]]);
 
         $televisionOne = ElectronicItem::factory()->create([
             'electronic_type_id'    => $televisionType->id,
@@ -93,7 +97,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $televisionTwo->extras()->sync([$tvController->id => ['quantity' => 1]]);
 
-        ElectronicItem::factory()->create([
+        $microwave = ElectronicItem::factory()->create([
             'electronic_type_id'    => $microwaveType->id,
             'name'                  => "Samsung {$microwaveType->name}",
             "price"                 => 900,
@@ -101,5 +105,20 @@ class DatabaseSeeder extends Seeder
             "is_single_purchasable" => true,
             "image"                 => "https://assets.taskalia.com/tracktik/microwave.png",
         ]);
+
+        $electronicItems = collect([$televisionOne, $televisionTwo, $console, $wirelessController, $wiredController,
+                                    $tvController, $microwave]);
+
+        User::factory()
+            ->has(
+                Order::factory()
+                    ->count(10)
+                    ->has(
+                        OrderDetail::factory()
+                            ->count(3)
+                            ->state(fn(array $attributes) => ['electronic_item_id' => $electronicItems->random()->id]), 'order_details'),
+                'orders')
+            ->count(20)
+            ->create();
     }
 }
