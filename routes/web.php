@@ -15,4 +15,5 @@ Route::post('/cart/remove/{id}', 'App\Http\Controllers\OrderController@remove')-
 Route::get('/order/preview', 'App\Http\Controllers\OrderController@preview')->name('order.preview');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', 'App\Http\Controllers\ProfileController@index')->name('profile.index');
+    Route::post('/order/generate', 'App\Http\Controllers\OrderController@create')->name('order.generate');
 });

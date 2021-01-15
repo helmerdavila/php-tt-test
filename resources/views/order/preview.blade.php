@@ -21,7 +21,8 @@
       </div>
     @endforeach
   @endif
-  <div class="flex flex-row justify-between mt-4">
+  <form action="{{ route('order.generate') }}" method="post" class="flex flex-row justify-between mt-4">
+    {!! csrf_field() !!}
     <div>
       <span class="text-xl font-semibold mr-2">Total:</span>
       <span class="text-xl font-semibold text-green-600">${{ $cart->total() }}</span>
@@ -29,5 +30,5 @@
     <button type="submit" class="block bg-black text-white px-4 py-2 rounded shadow">
       <i class="fas fa-fw fa-check"></i> Generate order
     </button>
-  </div>
+  </form>
 @endsection
